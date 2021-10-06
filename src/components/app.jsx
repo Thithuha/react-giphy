@@ -10,7 +10,11 @@ class App extends Component {
     this.state = {
       gifs: [],
       selectedGifId: "l3vRaLSB7dP96NTWw"
-    }
+    };
+  }
+
+  search = (query) => {
+
   }
 
   render() {
