@@ -4,6 +4,15 @@ import Gif from './gif';
 import GifList from './gif_list';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      gifs: [],
+      selectedGifId: "l3vRaLSB7dP96NTWw"
+    }
+  }
+
   render() {
     const gifs = [
       { id: "l3vRaLSB7dP96NTWw" },
@@ -15,11 +24,11 @@ class App extends Component {
         <div className="left-scene">
           <SearchBar />
           <div className="selected-gif">
-            <Gif id="l3vRaLSB7dP96NTWw" />
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-            <GifList gifs={gifs} />
+            <GifList gifs={this.state.gifs} />
         </div>
       </div>
     );
