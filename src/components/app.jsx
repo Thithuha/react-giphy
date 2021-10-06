@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import giphy from 'giphy-api';
+
 import SearchBar from './search_bar';
 import Gif from './gif';
 import GifList from './gif_list';
@@ -11,10 +13,18 @@ class App extends Component {
       gifs: [],
       selectedGifId: "l3vRaLSB7dP96NTWw"
     };
+    this.search("confetti");
   }
 
   search = (query) => {
-
+    giphy('pUkyzVu9zjPpCPZ7uuVr66mugR6P1Im1').search({
+      q: query,
+      rating: 'g'
+    }, (error, result) => {
+      this.setState({
+        gifs: result.data
+      });
+    });
   }
 
   render() {
